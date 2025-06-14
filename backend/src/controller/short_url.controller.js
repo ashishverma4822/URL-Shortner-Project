@@ -7,7 +7,7 @@ import wrapAsync from "../utils/tryCatchWrapper.js";
 export const createShortUrl = wrapAsync(async (req, res) => {
     const {url} = req.body;
     const shortUrl = await createShortUrlWithoutService(url);
-    res.send(process.env.APP_URL + shortUrl);
+    res.status(200).json({shortUrl : process.env.APP_URL + shortUrl});
 })
 
 

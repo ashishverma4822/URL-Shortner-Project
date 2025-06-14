@@ -1,28 +1,29 @@
 import React, { useState } from "react";
 import axios from "axios";
+import { createShortUrl } from "../api/shortUrl.api";
 
 function UrlForm() {
   const [url, setUrl] = useState("");
   const [shortUrl, setShortUrl] = useState("");
   const [loading, setLoading] = useState(false);
   const [copied, setCopied] = useState(false);
-
+  
   const handleSubmit = async () => {
-  if (!url.trim()) return;
-  try {
-    setLoading(true);
-    console.log("Sending URL to backend:", url);
-    const { data } = await axios.post("http://localhost:3000/api/create", { url });
-    console.log("Response from backend:", data);
-    setShortUrl(data);
-    setCopied(false);
-  } catch (error) {
-    console.error("Error while shortening URL:", error); 
-    alert("Something went wrong. Please try again.");
-  } finally {
-    setLoading(false);
-  }
-};
+    if (!url.trim()) return;
+    try {
+      setLoading(true);
+      console.log("Sending URL to backend:", url);
+      const shortUrl = await createShortUrl(url);
+      console.log("Response from backend:", shortUrl);
+      setShortUrl(shortUrl);
+      setCopied(false);
+    } catch (error) {
+      console.error("Error while shortening URL:", error); 
+      alert("Something went wrong. Please try again.");
+    } finally {
+      setLoading(false);
+    }
+  };
 
 
   const handleCopy = () => {
