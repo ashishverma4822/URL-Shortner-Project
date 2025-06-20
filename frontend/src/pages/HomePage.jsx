@@ -1,18 +1,17 @@
-import UrlForm from "../components/UrlForm";
 
-function HomePage() {
-  
 
+import React from 'react'
+import UrlForm from '../components/UrlForm'
+
+const HomePage = () => {
   return (
-    <div className="min-h-screen bg-gray-900 flex items-center justify-center px-4 text-white">
-      <div className="w-full max-w-2xl bg-gray-800 shadow-xl rounded-xl p-8 border border-gray-700">
-        <h1 className="text-3xl sm:text-4xl font-extrabold text-center text-cyan-400 mb-10">
-          🔗 URL Shortener
-        </h1>
+    <div className="min-h-screen bg-gray-100 flex flex-col items-center justify-center p-4">
+    <div className="bg-white p-8 rounded-lg shadow-md w-full max-w-md">
+      <h1 className="text-2xl font-bold text-center mb-6">URL Shortener</h1>
       <UrlForm/>
     </div>
-    </div>
-  );
+  </div>
+  )
 }
 
-export default HomePage;
+export default HomePage
