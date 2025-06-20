@@ -116,7 +116,7 @@ Your frontend will be available at: `http://localhost:5173`
 
 **Ashish Kumar Verma**
 
-- GitHub: [@vashishk0602](https://github.com/vashishk0602)
+- GitHub: [@ashishverma4822](https://github.com/ashishverma4822)
 
 ---
 
